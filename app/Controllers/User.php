@@ -30,7 +30,7 @@ class User extends BaseController
     }
     public function tambah()
     {
-        //menambhakan form tambah pada folder mahasiswa
+        //menambhakan form tambah pada folder 
         $data = [
             'title' => 'Tambah Data User',
         ];

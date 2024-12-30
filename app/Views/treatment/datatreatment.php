@@ -9,6 +9,29 @@
                     <h4 class="text-center"><?= $title ?></h4>
                 </div>
                 <div class="card-body">
+                    <?php if (session()->getFlashdata('success')) : ?>
+                        <script>
+                            swal({
+                                title: "Berhasil!",
+                                text: "<?= session()->getFlashdata('success'); ?>",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false
+                            });
+                        </script>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('error')) : ?>
+                        <script>
+                            swal({
+                                title: "Gagal!",
+                                text: "<?= session()->getFlashdata('error'); ?>",
+                                icon: "error",
+                                timer: 2000,
+                                buttons: false
+                            });
+                        </script>
+                    <?php endif; ?>
                     <a href="treatment/tambah" class="btn btn-primary">Tambah Data</a>
                     <br><br>
                     <div class="show-entries-container">

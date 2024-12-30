@@ -41,7 +41,7 @@ class Pelanggan extends BaseController
     {
 
         session()->setFlashdata('success', 'Data berhasil ditambahkan!');
-        return redirect()->to('dokter');
+        return redirect()->to('pelanggan');
     }
 
     public function edit($id_pel)

@@ -7,6 +7,29 @@
         <div class="container-fluid px-4">
             <div class="card mt-3 row d-flex align-items-stretch">
                 <div class="card-header">
+                    <?php if (session()->getFlashdata('success')) : ?>
+                        <script>
+                            swal({
+                                title: "Berhasil!",
+                                text: "<?= session()->getFlashdata('success'); ?>",
+                                icon: "success",
+                                timer: 2000,
+                                buttons: false
+                            });
+                        </script>
+                    <?php endif; ?>
+
+                    <?php if (session()->getFlashdata('error')) : ?>
+                        <script>
+                            swal({
+                                title: "Gagal!",
+                                text: "<?= session()->getFlashdata('error'); ?>",
+                                icon: "error",
+                                timer: 2000,
+                                buttons: false
+                            });
+                        </script>
+                    <?php endif; ?>
                     <h4 class="text-center"><?= $title ?></h4>
                 </div>
                 <div class="card-body">

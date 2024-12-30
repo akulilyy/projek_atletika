@@ -31,8 +31,8 @@
                             <div class="col-md-6">
                                 <label for="role">Bagian:</label>
                                 <select name="role" class="form-control" required>
-                                    <option value="admin">Admin</option>
-                                    <option value="pemilik">Pemilik</option>
+                                    <option value="admin" <?= $user['role'] == 'admin' ? 'selected' : '' ?>>Admin</option>
+                                    <option value="pemilik" <?= $user['role'] == 'pemilik' ? 'selected' : '' ?>>Pemilik</option>
                                 </select>
                             </div>
                         </div>

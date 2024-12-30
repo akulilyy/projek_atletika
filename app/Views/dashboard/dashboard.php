@@ -5,7 +5,7 @@
     <main>
         <div class="container-fluid px-4">
             <div class="card-header">
-                <h4 class="text-center">dashboard</h4>
+                <h4 class="text-center"></h4>
             </div>
             <div class="row d-flex align-items-stretch">
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">

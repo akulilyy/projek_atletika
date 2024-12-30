@@ -53,11 +53,11 @@ class Dokter extends BaseController
         }
         $this->dokterModel->save([
             'kode_dok'           => $kode_dok,
-            'nama'          => $this->request->getVar('nama'),
-            'jenis_kelamin'          => $this->request->getVar('jenis_kelamin'),
-            'tanggal_lahir'          => $this->request->getVar('tanggal_lahir'),
-            'no_hp'         => $this->request->getVar('no_hp'),
-            'alamat'        => $this->request->getVar('alamat'),
+            'nama'          => $this->request->getPost('nama'),
+            'jenis_kelamin'          => $this->request->getPost('jenis_kelamin'),
+            'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
+            'no_hp'         => $this->request->getPost('no_hp'),
+            'alamat'        => $this->request->getPost('alamat'),
         ]);
         session()->setFlashdata('success', 'Data berhasil ditambahkan!');
         return redirect()->to('dokter');
