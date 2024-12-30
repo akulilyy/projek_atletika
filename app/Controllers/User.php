@@ -45,7 +45,7 @@ class User extends BaseController
             'password' => $this->request->getPost('password'), // Tidak menggunakan password_hash
             'role' => $this->request->getPost('role'),
         ]);
-        session()->setFlashdata('success', 'Data berhasil diedit!');
+        session()->setFlashdata('success', 'Data berhasil disimpan!');
         return redirect()->to('user');
     }
 

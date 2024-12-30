@@ -28,19 +28,19 @@
                                 <label for="supplier" class="form-label">Supplier</label>
                                 <input type="text" name="supplier" class="form-control" required>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="harga_produk" class="form-label">Harga Produk</label>
-                            <input type="text" name="harga_produk" class="form-control" value="<?= $produk['harga']; ?>" required>
-                        </div>
-                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="stok" class="form-label">Stok</label>
                                 <input type="text" name="stok" class="form-control" value="<?= $produk['stok']; ?>" required>
                             </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="diskon" class="form-label">Diskon</label>
                                 <input type="text" name="diskon" class="form-control" value="<?= $produk['diskon']; ?>">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="harga_produk" class="form-label">Harga Produk</label>
+                                <input type="text" name="harga_produk" class="form-control" value="<?= $produk['harga']; ?>" required>
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">
