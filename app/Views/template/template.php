@@ -46,7 +46,7 @@
                 <div class="sb-sidenav-menu" style="scrollbar-width: none">
                     <div class="nav mb-4">
                         <div class="sb-sidenav-menu-heading"></div>
-                        <a class="nav-link" href="<?= base_url(); ?>dashboard/dashboard" style="color: white;">
+                        <a class="nav-link" href="<?= base_url(); ?>dashboard/dashboard " style="color: white;">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt" style="color: white;"></i></div>
                             Dashboard
                         </a>
