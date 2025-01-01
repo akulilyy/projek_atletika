@@ -33,7 +33,7 @@
                             });
                         </script>
                     <?php endif; ?>
-                    <br><br>
+                    <br>
                     <div class="show-entries-container">
                         <div class="d-flex align-items-center mb-3">
                             <label for="entries" class="me-2">Show</label>
@@ -57,8 +57,6 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Tanggal</th>
-                                <th>Kode</th>
-                                <!-- tarik data dari -->
                                 <th>Produk/Treatment</th>
                                 <!-- tarik data dari penjualan otomatis kesimpan juga disini???? -->
                                 <th>Jumlah</th>
@@ -71,7 +69,6 @@
                                 <tr>
                                     <td class="text-center"><?= $no++; ?></td>
                                     <td><?= $key['tanggal']; ?></td>
-                                    <td><?= $key['kode']; ?></td>
                                     <td><?= $key['produk/treatment']; ?></td>
                                     <td><?= $key['jumlah']; ?></td>
                                     <td><?= $key['harga_satuan']; ?></td>

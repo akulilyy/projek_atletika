@@ -10,30 +10,42 @@
             <div class="row d-flex align-items-stretch">
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">
                     <div class="card bg-primary text-white mb-4 w-100 custom-card">
-                        <div class="card-body text-center"><strong>DOKTER <br><span>10</span></strong></div>
+                        <div class="card-body text-center">
+                            <strong>DOKTER <br><span><?= isset($dokterCount) ? $dokterCount : 4 ?></span></strong>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">
                     <div class="card bg-success text-white mb-4 w-100 custom-card">
-                        <div class="card-body text-center"><strong>PRODUK<br><span>10</span></strong></div>
+                        <div class="card-body text-center">
+                            <strong>PRODUK<br><span><?= isset($produkCount) ? $produkCount : 5 ?></span></strong>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">
                     <div class="card bg-dark text-white mb-4 w-100 custom-card">
-                        <div class="card-body text-center"><strong>TREATMENT<br><span>10</span></strong></div>
+                        <div class="card-body text-center">
+                            <strong>TREATMENT<br><span><?= isset($treatmentCount) ? $treatmentCount : 3 ?></span></strong>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">
                     <div class="card bg-danger text-white mb-4 w-100 custom-card">
-                        <div class="card-body text-center"><strong>PELANGGAN<br><span>10</span></strong></div>
+                        <div class="card-body text-center">
+                            <strong>PELANGGAN<br><span><?= isset($pelangganCount) ? $pelangganCount : 2 ?></span></strong>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">
                     <div class="card bg-secondary text-white mb-4 w-100 custom-card">
-                        <div class="card-body text-center"><strong>SUPPLIER<br><span>10</span></strong></div>
+                        <div class="card-body text-center">
+                            <strong>SUPPLIER<br><span><?= isset($supplierCount) ? $supplierCount : 2 ?></span></strong>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
 
             <div class="row">
                 <div class="col-xl-6">

@@ -14,8 +14,8 @@
                     <form action="<?= base_url(); ?>penjualanproduk/simpan" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="kode_pro" class="form-label">Tanggal</label>
-                                <input type="text" name="tanggal" class="form-control" required>
+                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Produk</label>
@@ -24,17 +24,17 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Qty</label>
+                                <label for="qty" class="form-label">Qty</label>
                                 <input type="text" name="qty" class="form-control" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="stok" class="form-label">Harga Satuan</label>
+                                <label for="harga_satuan" class="form-label">Harga Satuan</label>
                                 <input type="text" name="harga_satuan" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Subtotal</label>
+                                <label for="subtotal" class="form-label">Subtotal</label>
                                 <input type="text" name="subtotal" class="form-control">
                             </div>
                         </div>
