@@ -16,13 +16,22 @@ class Dokter extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $dokter = $this->dokterModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $dokterModel = new \App\Models\DokterModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $dokter = $dokterModel->like('kode_dok', $search)
+                ->orLike('nama', $search)
+                ->findAll();
+        } else {
+            $dokter = $dokterModel->findAll();
+        }
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Data Dokter',
-            'dokter' => $dokter
+            'dokter' => $dokter,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
 
         // Memanggil view dan mengirim data

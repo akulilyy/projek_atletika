@@ -15,12 +15,22 @@ class Login extends BaseController
     {
         $session = session();
         $model = new UserModel();
+
+        // Validasi input
+        if (!$this->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ])) {
+            $session->setFlashdata('error', 'Username dan Password harus diisi!');
+            return redirect()->back()->withInput(); // Kembali ke form login dengan input sebelumnya
+        }
+
         $username = $this->request->getPost('username');
-        $password = md5($this->request->getPost('password'));
+        $password = $this->request->getPost('password');
 
-        $user = $model->getUserByUsername($username);
+        $user = $model->getUserByUsername($username); // Ambil data user berdasarkan username
 
-        if ($user && $user['password'] === $password) {
+        if ($user && $user['password'] === $password) { // Bandingkan password dari DB dan input
             $session->set([
                 'id_user' => $user['id_user'],
                 'nama' => $user['nama'],
@@ -29,16 +39,10 @@ class Login extends BaseController
                 'isLoggedIn' => true
             ]);
 
-            return redirect()->to('dashboard');
+            return redirect()->to('dashboard'); // Arahkan ke dashboard jika login berhasil
         } else {
             $session->setFlashdata('error', 'Username atau Password salah!');
-            return redirect()->back();
+            return redirect()->back(); // Kembali ke halaman login dengan pesan error
         }
     }
-
-    // public function logout()
-    // {
-    //     session()->destroy();
-    //     return redirect()->to('index/login');
-    // }
 }

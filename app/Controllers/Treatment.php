@@ -16,13 +16,22 @@ class Treatment extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $treatment = $this->treatmentModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $treatmentModel = new \App\Models\TreatmentModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $treatment = $treatmentModel->like('kode_tre', $search)
+                ->orLike('nama', $search)
+                ->findAll();
+        } else {
+            $treatment = $treatmentModel->findAll();
+        }
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Data Treatment',
-            'treatment' => $treatment
+            'treatment' => $treatment,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
 
         // Memanggil view dan mengirim data

@@ -45,9 +45,11 @@
                             </select>
                             <span class="ms-2">entries</span>
                         </div>
-                        <div class="search-box d-flex align-items-center">
-                            <input type="text" id="search" class="form-control" placeholder="Cari..." style="width: 250px;">
-                            <button id="search-button" class="btn btn-primary ms-2">Cari</button>
+                        <div class="search-box d-flex align-items-center d-flex justify-content-end mb-2">
+                            <form action="" method="get" class="d-flex">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="Cari Jadwal" style="width: 250px;" value="<?= esc($search) ?>">
+                                <button type="submit" class="btn btn-primary ms-2">Cari</button>
+                            </form>
                         </div>
                     </div>
                     <div class="table-responsive">

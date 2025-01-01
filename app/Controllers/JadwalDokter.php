@@ -17,13 +17,23 @@ class JadwalDokter extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $jadwaldokter = $this->jadwaldokterModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $jadwaldokterModel = new \App\Models\JadwalDokterModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $jadwaldokter = $jadwaldokterModel->like('', $search)
+                ->orLike('', $search)
+                ->findAll();
+        } else {
+            $jadwaldokter = $jadwaldokterModel->findAll();
+        }
+
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Jadwal Dokter',
-            'jadwaldokter' => $jadwaldokter
+            'jadwaldokter' => $jadwaldokter,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
 
         // Memanggil view dan mengirim data
@@ -70,8 +80,6 @@ class JadwalDokter extends BaseController
 
         return redirect()->to(base_url('jadwaldokter'));
     }
-
-
 
     public function edit($id_jadwal)
     {

@@ -16,13 +16,22 @@ class User extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $user = $this->userModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $userModel = new \App\Models\UserModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $user = $userModel->like('nama', $search)
+                ->orLike('username', $search)
+                ->findAll();
+        } else {
+            $user = $userModel->findAll();
+        }
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Data User',
-            'user' => $user
+            'user' => $user,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
 
         // Memanggil view dan mengirim data

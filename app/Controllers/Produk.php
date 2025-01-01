@@ -16,15 +16,23 @@ class Produk extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $produk = $this->produkModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $produkModel = new \App\Models\ProdukModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $produk = $produkModel->like('kode_produk', $search)
+                ->orLike('nama', $search)
+                ->findAll();
+        } else {
+            $produk = $produkModel->findAll();
+        }
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Data Produk',
-            'produk' => $produk
+            'produk' => $produk,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
-
         // Memanggil view dan mengirim data
         echo view('produk/dataproduk', $data);
     }

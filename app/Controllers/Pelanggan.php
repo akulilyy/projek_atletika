@@ -16,13 +16,22 @@ class Pelanggan extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $pelanggan = $this->pelangganModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $pelangganModel = new \App\Models\PelangganModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $pelanggan = $pelangganModel->like('nama', $search)
+                ->orLike('jenis_kelamin', $search)
+                ->findAll();
+        } else {
+            $pelanggan = $pelangganModel->findAll();
+        }
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Data Pelanggan',
-            'pelanggan' => $pelanggan
+            'pelanggan' => $pelanggan,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
 
         // Memanggil view dan mengirim data

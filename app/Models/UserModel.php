@@ -6,9 +6,15 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
+
     protected $table = 'user';
     protected $primaryKey = 'id_user';
     protected $allowedFields = ['username', 'password', 'nama', 'role'];
+
+    public function getUserByUsername($username)
+    {
+        return $this->where('username', $username)->first(); // Ambil data user berdasarkan username
+    }
 
     public function data_us($id_us)
     {

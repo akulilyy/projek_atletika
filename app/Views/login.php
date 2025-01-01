@@ -40,8 +40,7 @@
                                             <label for="inputPassword">Password</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a href="<?= base_url(); ?>dashboard/dashboard" class="btn btn-primary">Login</a>
-                                            <!-- <button type="submit" class="btn btn-primary"> LOGIN</button> -->
+                                            <button type="submit" class="btn btn-primary">Login</button>
                                         </div>
                                     </form>
                                     <?php

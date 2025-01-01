@@ -16,13 +16,22 @@ class Supplier extends BaseController
 
     public function index()
     {
-        // Mengambil semua data 
-        $supplier = $this->supplierModel->findAll();
+        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
+        $supplierModel = new \App\Models\SupplierModel(); // Pastikan Anda menggunakan model yang sesuai
+
+        if ($search) {
+            $supplier = $supplierModel->like('nama', $search)
+                ->orLike('alamat', $search)
+                ->findAll();
+        } else {
+            $supplier = $supplierModel->findAll();
+        }
 
         // Menyiapkan data untuk dikirim ke view
         $data = [
             'title'  => 'Data Supplier',
-            'supplier' => $supplier
+            'supplier' => $supplier,
+            'search' => $search, // Kirimkan data pencarian ke view
         ];
 
         // Memanggil view dan mengirim data
