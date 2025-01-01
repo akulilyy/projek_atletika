@@ -13,10 +13,10 @@
                 <div class="card-body">
                     <form action="<?= base_url(); ?>produk/update" method="post">
                         <div class="row mb-3">
-                            <input type="hidden" name="id" value="<?= $produk['id_produk']; ?>">
+                            <input type="hidden" name="id_produk" value="<?= $produk['id_produk']; ?>">
                             <div class="col-md-6">
                                 <label for="kode_pro" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" value="<?= $produk['kode']; ?>" required>
+                                <input type="text" name="kode" class="form-control" value="<?= $produk['kode_produk']; ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Produk</label>
@@ -26,7 +26,14 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="supplier" class="form-label">Supplier</label>
-                                <input type="text" name="supplier" class="form-control" required>
+                                <select name="id_supplier" class="form-select" required>
+                                    <option value="">Pilih Supplier</option>
+                                    <?php foreach ($supplier as $supplier): ?>
+                                        <option value="<?= $supplier['id_supplier']; ?>" <?= ($produk['id_supplier'] == $supplier['id_supplier']) ? 'selected' : ''; ?>>
+                                            <?= $supplier['nama']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="stok" class="form-label">Stok</label>
@@ -36,7 +43,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="harga_produk" class="form-label">Harga Produk</label>
-                                <input type="text" name="harga_produk" class="form-control" value="<?= $produk['harga']; ?>" required>
+                                <input type="text" name="harga_produk" class="form-control" value="<?= $produk['harga_produk']; ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="diskon" class="form-label">Diskon</label>

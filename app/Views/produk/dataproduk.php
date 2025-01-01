@@ -72,9 +72,9 @@
                             foreach ($produk as $key) : ?>
                                 <tr>
                                     <td class="text-center"><?= $no++; ?></td>
-                                    <td><?= $key['kode']; ?></td>
+                                    <td><?= $key['kode_produk']; ?></td>
                                     <td><?= $key['nama']; ?></td>
-                                    <td><?= $key['supplier']; ?></td>
+                                    <td><?= $key['supplier_name']; ?></td>
                                     <td><?= $key['stok']; ?></td>
                                     <td><?= $key['harga_produk']; ?></td>
                                     <td><?= $key['diskon']; ?></td>

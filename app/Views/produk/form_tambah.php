@@ -23,8 +23,12 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Supplier</label>
-                                <input type="text" name="nama" class="form-control" required>
+                                <label for="supplier" class="form-label">Supplier</label>
+                                <select name="id_supplier" id="supplier" class="form-select">
+                                    <?php foreach ($supplier as $supplier): ?>
+                                        <option value="<?= $supplier['id_supplier']; ?>"><?= $supplier['nama']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="stok" class="form-label">Stok</label>

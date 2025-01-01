@@ -11,7 +11,6 @@ class Dashboard extends BaseController
     //     }
 
     //     echo "Selamat datang, " . session()->get('nama') . "!";
-    //     echo "<br> <a href='/logout'>Logout</a>";
     // }
 
     public function dashboard()
