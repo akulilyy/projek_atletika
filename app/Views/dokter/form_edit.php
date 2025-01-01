@@ -14,9 +14,9 @@
                     <form action="<?= base_url(); ?>dokter/update" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <input type="hidden" name="id" value="<?= $dokter['id_dokter']; ?>">
+                                <input type="hidden" name="id_dokter" value="<?= $dokter['id_dokter']; ?>">
                                 <label for="kode_dok" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" value="<?= $dokter['kode_dok']; ?>" required>
+                                <input type="text" name="kode_dok" class="form-control" value="<?= $dokter['kode_dok']; ?>" required>
                             </div>
                             <div class=" col-md-6">
                                 <label for="nama" class="form-label">Nama Dokter</label>
@@ -27,9 +27,8 @@
                             <div class="col-md-6">
                                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" class="form-select" value="<?= $dokter['jenis_kelamin']; ?>" required>
-                                    <option value="">Pilih</option>
-                                    <option value="Laki-laki">Laki-laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+                                    <option value="Laki-laki" <?= $dokter['jenis_kelamin'] == 'Laki-laki' ? 'selected' : '' ?>>Laki-laki</option>
+                                    <option value="Perempuan" <?= $dokter['jenis_kelamin'] == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
                                 </select>
                             </div>
                             <div class="col-md-6">

@@ -14,30 +14,29 @@
                     <form action="<?= base_url(); ?>pelanggan/update" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <input type="hidden" name="id" value="<?= $pelanggan['id_pelanggan']; ?>">
+                                <input type="hidden" name="id_pelanggan" value="<?= $pelanggan['id_pelanggan']; ?>">
                                 <label for="nama" class="form-label">Nama Pelanggan</label>
                                 <input type="text" name="nama" class="form-control" value="<?= $pelanggan['nama']; ?>" required>
                             </div>
-                        </div>
-                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
-                                <select name="jenis_kelamin" class="form-select" value="<?= $pelanggan['jenis_kelamin']; ?>" required>
-                                    <option value="">Pilih</option>
-                                    <option value="Laki-laki">Laki-laki</option>
-                                    <option value="Perempuan">Perempuan</option>
+                                <select name="jenis_kelamin" class="form-select" required>
+                                    <option value="Laki-laki" <?= $pelanggan['jenis_kelamin'] == 'Laki-laki' ? 'selected' : ''; ?>>Laki-laki</option>
+                                    <option value="Perempuan" <?= $pelanggan['jenis_kelamin'] == 'Perempuan' ? 'selected' : ''; ?>>Perempuan</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
                                 <input type="date" name="tanggal_lahir" class="form-control" value="<?= $pelanggan['tanggal_lahir']; ?>" required>
                             </div>
-                        </div>
-                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="no_hp" class="form-label">No. HP</label>
                                 <input type="text" name="no_hp" class="form-control" value="<?= $pelanggan['no_hp']; ?>" required>
                             </div>
+                        </div>
+                        <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="alamat" class="form-label">Alamat</label>
                                 <input type="text" name="alamat" class="form-control" value="<?= $pelanggan['alamat']; ?>" required>

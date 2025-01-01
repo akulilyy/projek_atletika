@@ -39,21 +39,19 @@ class Pelanggan extends BaseController
 
     public function simpan()
     {
-
+        $this->pelangganModel->save([
+            'nama'          => $this->request->getPost('nama'),
+            'jenis_kelamin'          => $this->request->getPost('jenis_kelamin'),
+            'tanggal_lahir'          => $this->request->getPost('tanggal_lahir'),
+            'no_hp'         => $this->request->getPost('no_hp'),
+            'alamat'        => $this->request->getPost('alamat'),
+        ]);
         session()->setFlashdata('success', 'Data berhasil ditambahkan!');
         return redirect()->to('pelanggan');
     }
 
     public function edit($id_pel)
     {
-        $id_pel = $this->request->getVar('id_pelanggan');
-        $data = [
-            'nama'               => $this->request->getVar('nama'),
-            'jenis_kelamin'      => $this->request->getVar('jenis_kelamin'),
-            'tanggal_lahir'      => $this->request->getVar('tanggal_lahir'),
-            'no_hp'              => $this->request->getVar('no_hp'),
-            'alamat'             => $this->request->getVar('alamat'),
-        ];
         $pelanggan = $this->pelangganModel->data_pel($id_pel);
         $data = [
             'title' => 'Edit Data Pelanggan',
@@ -61,7 +59,6 @@ class Pelanggan extends BaseController
         ];
         echo view('pelanggan/form_edit', $data);
     }
-
     public function update()
     {
         $id_pel = $this->request->getVar('id_pelanggan');

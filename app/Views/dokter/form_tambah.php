@@ -15,7 +15,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="kode_dok" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" required>
+                                <input type="text" name="kode_dok" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Dokter</label>
@@ -26,7 +26,6 @@
                             <div class="col-md-6">
                                 <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                                 <select name="jenis_kelamin" class="form-select" required>
-                                    <option value="">Pilih</option>
                                     <option value="Laki-laki">Laki-laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>

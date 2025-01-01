@@ -12,18 +12,20 @@
                 <div class="card-body">
                     <form action="<?= base_url(); ?>supplier/update" method="post">
                         <div class="row mb-3">
-                            <input type="hidden" name="id" value="<?= $supplier['id_supplier']; ?>">
-                            <div class="col-md-6">
+                            <input type="hidden" name="id_supplier" value="<?= $supplier['id_supplier']; ?>">
+                            <div class="col-md-8">
                                 <label for="nama" class="form-label">Nama Supplier</label>
                                 <input type="text" name="nama" class="form-control" value="<?= $supplier['nama']; ?>" required>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <label for="no_hp" class="form-label">No. HP</label>
                                 <input type="text" name="no_hp" class="form-control" value="<?= $supplier['no_hp']; ?>" required>
                             </div>
-                            <div class="col-md-6">
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-8">
                                 <label for="alamat" class="form-label">Alamat</label>
                                 <input type="text" name="alamat" class="form-control" value="<?= $supplier['alamat']; ?>" required>
                             </div>

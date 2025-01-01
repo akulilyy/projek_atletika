@@ -28,7 +28,7 @@
                                 <input type="text" name="password" class="form-control" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="role">Bagian:</label>
+                                <label for="role">Bagian</label>
                                 <select name="role" class="form-control" required>
                                     <option value="admin">Admin</option>
                                     <option value="pemilik">Pemilik</option>

@@ -73,8 +73,8 @@
                                     <td><?= $key['no_hp']; ?></td>
                                     <td><?= $key['alamat']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">
-                                        <a href="/pelanggan/edit/<?= $key['id_dokter']; ?>" class="btn btn-success">Edit</a>
-                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_pea']; ?>)">Hapus</a>
+                                        <a href="/pelanggan/edit/<?= $key['id_pelanggan']; ?>" class="btn btn-success">Edit</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_pelanggan']; ?>)">Hapus</a>
                                         <script>
                                             function confirmDelete(id) {
                                                 swal({
