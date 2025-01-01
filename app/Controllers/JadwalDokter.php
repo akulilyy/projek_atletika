@@ -17,15 +17,17 @@ class JadwalDokter extends BaseController
 
     public function index()
     {
-        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
-        $jadwaldokterModel = new \App\Models\JadwalDokterModel(); // Pastikan Anda menggunakan model yang sesuai
+        $search = $this->request->getGet('search');
+        $jadwaldokterModel = new \App\Models\JadwalDokterModel();
 
+        // Pencarian
         if ($search) {
-            $jadwaldokter = $jadwaldokterModel->like('', $search)
-                ->orLike('', $search)
-                ->findAll();
+            $jadwaldokter = $jadwaldokterModel->like('dokter.nama', $search)  // Cari berdasarkan nama dokter
+                ->orLike('jadwal_dokter.tanggal', $search)
+                ->orLike('jadwal_dokter.jam_praktik', $search)
+                ->getJadwalWithDokter();  // Ambil data jadwal dengan nama dokter
         } else {
-            $jadwaldokter = $jadwaldokterModel->findAll();
+            $jadwaldokter = $jadwaldokterModel->getJadwalWithDokter();  // Ambil semua jadwal
         }
 
 
@@ -42,11 +44,11 @@ class JadwalDokter extends BaseController
 
     public function tambah()
     {
-        $dokterModel = new DokterModel();
-        $dokter = $dokterModel->findAll();
-
+        $dokterModel = new \App\Models\DokterModel(); // Pastikan model SupplierModel sudah ada
+        $dokter = $dokterModel->findAll();  // Ambil semua data supplier
+        //menambhakan form tambah pada folder
         $data = [
-            'title' => 'Tambah Jadwal Dokter',
+            'title' => 'Tambah Jadwal dokter',
             'dokter' => $dokter
         ];
         echo view('jadwaldokter/form_tambah', $data);
@@ -58,15 +60,9 @@ class JadwalDokter extends BaseController
         // Ambil id_dokter dari form
         $id_dokter = $this->request->getPost('id_dokter');
 
-        // Ambil nama dokter berdasarkan id_dokter
-        $dokterModel = new DokterModel();  // Pastikan Anda sudah membuat model untuk tabel dokter
-        $dokter = $dokterModel->find($id_dokter);
-        $nama = $dokter ? $dokter['nama'] : ''; // Pastikan dokter ditemukan
-
         // Data yang akan disimpan
         $data = [
             'id_dokter' => $id_dokter,  // Menyimpan id_dokter
-            'nama' => $nama,     // Menyimpan nama dokter
             'tanggal' => $this->request->getPost('tanggal'),
             'jam_praktik' => $this->request->getPost('jam_praktik'),
         ];
@@ -80,6 +76,34 @@ class JadwalDokter extends BaseController
 
         return redirect()->to(base_url('jadwaldokter'));
     }
+
+
+    // public function simpan()
+    // {
+    //     // Ambil id_dokter dari form
+    //     $id_dokter = $this->request->getPost('id_dokter');
+
+    //     // Ambil nama dokter berdasarkan id_dokter
+    //     $dokterModel = new DokterModel();  // Pastikan Anda sudah membuat model untuk tabel dokter
+    //     $dokter = $dokterModel->find($id_dokter);
+    //     $nama = $dokter ? $dokter['nama'] : ''; // Pastikan dokter ditemukan
+
+    //     // Data yang akan disimpan
+    //     $data = [
+    //         'id_dokter' => $id_dokter,  // Menyimpan id_dokter
+    //         'tanggal' => $this->request->getPost('tanggal'),
+    //         'jam_praktik' => $this->request->getPost('jam_praktik'),
+    //     ];
+
+    //     // Simpan data ke jadwal_dokter
+    //     if ($this->jadwaldokterModel->insert($data)) {
+    //         session()->setFlashdata('success', 'Data berhasil disimpan.');
+    //     } else {
+    //         session()->setFlashdata('error', 'Terjadi kesalahan saat menyimpan data.');
+    //     }
+
+    //     return redirect()->to(base_url('jadwaldokter'));
+    // }
 
     public function edit($id_jadwal)
     {

@@ -8,7 +8,17 @@ class JadwalDokterModel extends Model
 {
     protected $table = 'jadwal_dokter'; // Nama tabel di database
     protected $primaryKey = 'id_jadwaldokter'; // Primary key tabel
-    protected $allowedFields = ['nama', 'tanggal', 'jam_praktik']; // Kolom yang bisa diisi
+    protected $allowedFields = ['tanggal', 'jam_praktik', 'id_dokter']; // Kolom yang bisa diisi
+
+    public function getJadwalWithDokter()
+    {
+        return $this->db->table('jadwal_dokter')
+            ->join('dokter', 'dokter.id_dokter = jadwal_dokter.id_dokter')
+            ->select('jadwal_dokter.*, dokter.nama as dokter_name')
+            ->get()
+            ->getResultArray();
+    }
+
 
     public function data_jadwal($id_jadwal)
     {

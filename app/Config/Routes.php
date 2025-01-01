@@ -51,13 +51,21 @@ $routes->get('/supplier/edit/(:num)', 'Supplier::edit/$1');
 $routes->post('/supplier/update', 'Supplier::update');
 $routes->get('/supplier/delete/(:num)', 'Supplier::delete/$1');
 
-//supplier
+//treatment
 $routes->get('/treatment', 'Treatment::index');
 $routes->get('/treatment/tambah', 'Treatment::tambah');
 $routes->post('/treatment/simpan', 'Treatment::simpan');
 $routes->get('/treatment/edit/(:num)', 'Treatment::edit/$1');
 $routes->post('/treatment/update', 'Treatment::update');
 $routes->get('/treatment/delete/(:num)', 'Treatment::delete/$1');
+
+//produk
+$routes->get('/produk', 'Produk::index');
+$routes->get('/produk/tambah', 'Produk::tambah');
+$routes->post('/produk/simpan', 'Produk::simpan');
+$routes->get('/produk/edit/(:num)', 'Produk::edit/$1');
+$routes->post('/produk/update', 'Produk::update');
+$routes->get('/produk/delete/(:num)', 'Produk::delete/$1');
 
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . 'Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . 'Routes.php';

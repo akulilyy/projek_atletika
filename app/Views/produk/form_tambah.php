@@ -13,8 +13,8 @@
                     <form action="<?= base_url(); ?>produk/simpan" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="kode_pro" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" required>
+                                <label for="kode_produk" class="form-label">Kode</label>
+                                <input type="text" name="kode_produk" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Produk</label>

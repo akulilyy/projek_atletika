@@ -75,8 +75,8 @@
                                     <td><?= $key['kode_produk']; ?></td>
                                     <td><?= $key['nama']; ?></td>
                                     <td><?= $key['supplier_name']; ?></td>
-                                    <td><?= $key['stok']; ?></td>
                                     <td><?= $key['harga_produk']; ?></td>
+                                    <td><?= $key['stok']; ?></td>
                                     <td><?= $key['diskon']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">
                                         <a href="/produk/edit/<?= $key['id_produk']; ?>" class="btn btn-success">Edit</a>

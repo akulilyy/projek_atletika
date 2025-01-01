@@ -109,7 +109,7 @@ class Produk extends BaseController
 
     public function update()
     {
-        $id_produk = $this->request->getVar('id'); // Pastikan menggunakan 'id' yang benar dari input hidden
+        $id_produk = $this->request->getVar('id_produk'); // Pastikan menggunakan 'id' yang benar dari input hidden
         $data = [
             'kode_produk'   => $this->request->getVar('kode'),
             'nama'          => $this->request->getVar('nama'),

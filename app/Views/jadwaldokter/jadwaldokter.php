@@ -66,7 +66,7 @@
                             foreach ($jadwaldokter as $key) : ?>
                                 <tr>
                                     <td class="text-center"><?= $no++; ?></td>
-                                    <td><?= $key['nama']; ?></td>
+                                    <td><?= $key['dokter_name']; ?></td>
                                     <td><?= $key['tanggal']; ?></td>
                                     <td><?= $key['jam_praktik']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">

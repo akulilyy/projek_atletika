@@ -16,7 +16,7 @@
                             <input type="hidden" name="id_produk" value="<?= $produk['id_produk']; ?>">
                             <div class="col-md-6">
                                 <label for="kode_pro" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" value="<?= $produk['kode_produk']; ?>" required>
+                                <input type="text" name="kode_produk" class="form-control" value="<?= $produk['kode_produk']; ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Produk</label>

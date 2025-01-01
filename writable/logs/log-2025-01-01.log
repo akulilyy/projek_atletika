@@ -2008,3 +2008,182 @@ in SYSTEMPATH\Model.php on line 456.
 10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
 INFO - 2025-01-01 14:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2025-01-01 14:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 15:09:09 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: produk/edit/assets/demo/chart-area-demo.js]
+in APPPATH\Views\produk\form_edit.php on line 16.
+ 1 APPPATH\Views\produk\form_edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php', 16)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produk/form_edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(107): view('produk/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('assets', 'demo', 'chart-area-demo.js')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+CRITICAL - 2025-01-01 15:09:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Updates are not allowed unless they contain a "where" or "like" clause.
+[Method: POST, Route: produk/update]
+in SYSTEMPATH\Model.php on line 456.
+ 1 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\Produk.php(125): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+CRITICAL - 2025-01-01 15:09:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Updates are not allowed unless they contain a "where" or "like" clause.
+[Method: POST, Route: produk/update]
+in SYSTEMPATH\Model.php on line 456.
+ 1 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\Produk.php(125): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+CRITICAL - 2025-01-01 15:10:16 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: produk/edit/assets/demo/chart-area-demo.js]
+in APPPATH\Views\produk\form_edit.php on line 16.
+ 1 APPPATH\Views\produk\form_edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php', 16)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produk/form_edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(107): view('produk/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('assets', 'demo', 'chart-area-demo.js')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 15:10:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 15:10:21 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: produk/edit/assets/demo/chart-area-demo.js]
+in APPPATH\Views\produk\form_edit.php on line 16.
+ 1 APPPATH\Views\produk\form_edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php', 16)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produk/form_edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(107): view('produk/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('assets', 'demo', 'chart-area-demo.js')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+CRITICAL - 2025-01-01 15:10:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Updates are not allowed unless they contain a "where" or "like" clause.
+[Method: POST, Route: produk/update]
+in SYSTEMPATH\Model.php on line 456.
+ 1 SYSTEMPATH\BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH\Model.php(865): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH\Controllers\Produk.php(125): CodeIgniter\Model->update(null, [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->update()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 15:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 15:13:19 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: produk/edit/assets/demo/chart-area-demo.js]
+in APPPATH\Views\produk\form_edit.php on line 16.
+ 1 APPPATH\Views\produk\form_edit.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php', 16)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produk/form_edit', [], true)
+ 5 APPPATH\Controllers\Produk.php(107): view('produk/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Produk->edit('assets', 'demo', 'chart-area-demo.js')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Produk))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 15:13:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:13:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:14:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:14:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:14:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:14:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:17:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:17:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:17:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:24:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:26:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:27:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:27:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:27:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:27:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 15:36:04 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: jadwaldokter]
+in APPPATH\Views\jadwaldokter\jadwaldokter.php on line 69.
+ 1 APPPATH\Views\jadwaldokter\jadwaldokter.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\jadwaldokter\\jadwaldokter.php', 69)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\jadwaldokter\\jadwaldokter.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('jadwaldokter/jadwaldokter', [], true)
+ 5 APPPATH\Controllers\JadwalDokter.php(40): view('jadwaldokter/jadwaldokter', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JadwalDokter->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JadwalDokter))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 15:46:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 15:46:06 --> ErrorException: Undefined variable $supplier
+[Method: GET, Route: jadwaldokter/tambah]
+in APPPATH\Views\produk\form_tambah.php on line 28.
+ 1 APPPATH\Views\produk\form_tambah.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $supplier', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_tambah.php', 28)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_tambah.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produk/form_tambah', [], true)
+ 5 APPPATH\Controllers\JadwalDokter.php(54): view('produk/form_tambah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JadwalDokter->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JadwalDokter))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+CRITICAL - 2025-01-01 15:48:28 --> ErrorException: Undefined variable $supplier
+[Method: GET, Route: jadwaldokter/tambah]
+in APPPATH\Views\produk\form_tambah.php on line 28.
+ 1 APPPATH\Views\produk\form_tambah.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $supplier', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_tambah.php', 28)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\produk\\form_tambah.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('produk/form_tambah', [], true)
+ 5 APPPATH\Controllers\JadwalDokter.php(54): view('produk/form_tambah', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JadwalDokter->tambah()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JadwalDokter))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 15:52:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 15:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

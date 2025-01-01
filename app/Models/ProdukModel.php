@@ -9,7 +9,7 @@ class ProdukModel extends Model
     protected $table = 'produk';
     protected $primaryKey = 'id_produk';
     //untuk mengijinkan menambah data
-    protected $allowedFields = ['kode_pro', 'nama', 'harga_produk', 'stok', 'diskon', 'id_supplier'];
+    protected $allowedFields = ['kode_produk', 'nama', 'harga_produk', 'stok', 'diskon', 'id_supplier'];
 
     public function getProdukWithSupplier()
     {
