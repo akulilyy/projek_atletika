@@ -8,7 +8,7 @@
         <div class="container-fluid px-4">
             <div class="card mt-3 row d-flex align-items-stretch">
                 <div class="card-header">
-                    <h4 class="text-center">
+                    <h4 class="text-center"><?= $title ?></h4>
                 </div>
                 <div class="card-body">
                     <form action="<?php echo base_url('user/simpan') ?>" method="post">

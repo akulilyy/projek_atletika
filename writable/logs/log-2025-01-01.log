@@ -1393,3 +1393,57 @@ in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
 14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
 16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 04:42:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 04:46:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 04:46:31 --> ErrorException: Undefined variable $title
+[Method: GET, Route: user/edit/3]
+in APPPATH\Views\user\form_edit.php on line 11.
+ 1 APPPATH\Views\user\form_edit.php(11): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\user\\form_edit.php', 11)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\user\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user/form_edit', [], true)
+ 5 APPPATH\Controllers\User.php(55): view('user/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\User->edit('3')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+CRITICAL - 2025-01-01 04:46:44 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: user/edit/assets/demo/chart-area-demo.js]
+in APPPATH\Views\user\form_edit.php on line 14.
+ 1 APPPATH\Views\user\form_edit.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\user\\form_edit.php', 14)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\user\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user/form_edit', [], true)
+ 5 APPPATH\Controllers\User.php(55): view('user/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\User->edit('assets', 'demo', 'chart-area-demo.js')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 04:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 04:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 04:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 04:47:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 04:47:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-01-01 04:47:15 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: user/edit/assets/demo/chart-area-demo.js]
+in APPPATH\Views\user\form_edit.php on line 14.
+ 1 APPPATH\Views\user\form_edit.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\user\\form_edit.php', 14)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\projek_atletika\\app\\Views\\user\\form_edit.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('user/form_edit', [], true)
+ 5 APPPATH\Controllers\User.php(55): view('user/form_edit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\User->edit('assets', 'demo', 'chart-area-demo.js')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\projek_atletika\\public\\index.php')
+INFO - 2025-01-01 04:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2025-01-01 04:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
