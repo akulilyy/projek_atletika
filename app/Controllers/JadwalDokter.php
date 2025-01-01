@@ -108,18 +108,27 @@ class JadwalDokter extends BaseController
     public function edit($id_jadwal)
     {
         $jadwaldokter = $this->jadwaldokterModel->find($id_jadwal);
+        $dokterModel = new DokterModel();  // Memanggil model Dokter
+        $dokter = $dokterModel->findAll(); // Ambil semua data dokter
+
+        // Mengambil nama dokter berdasarkan id_dokter dari jadwaldokter
+        $jadwaldokter['nama'] = $dokterModel->find($jadwaldokter['id_dokter'])['nama'];
+
         $data = [
             'title' => 'Edit Jadwal Dokter',
-            'jadwaldokter' => $jadwaldokter
+            'jadwaldokter' => $jadwaldokter,
+            'dokter' => $dokter
         ];
+
         echo view('jadwaldokter/form_edit', $data);
     }
+
 
     public function update()
     {
         $id_jadwal = $this->request->getVar('id_jadwaldokter');
         $data = [
-            'nama'               => $this->request->getVar('nama'),
+            'id_dokter'               => $this->request->getVar('id_dokter'),
             'tanggal'            => $this->request->getVar('tanggal_'),
             'jam_praktik'        => $this->request->getVar('jadwal_praktik'),
         ];

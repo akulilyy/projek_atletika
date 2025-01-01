@@ -13,12 +13,15 @@
                 <div class="card-body">
                     <form action="<?= base_url(); ?>jadwaldokter/update" method="post">
                         <div class="row mb-3">
-                            <input type="hidden" name="id" value="<?= $jadwaldokter['id_jadwaldokter']; ?>">
+                            <input type="hidden" name="id_jadwaldokter" value="<?= $jadwaldokter['id_jadwaldokter']; ?>">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label" name="nama">Nama</label>
-                                <select name="id_dokter" class="form-control" value="<?= $jadwaldokter['nama']; ?>" required>
+                                <label for="id_dokter" class="form-label">Nama Dokter</label>
+                                <select name="id_dokter" class="form-control" required>
                                     <?php foreach ($dokter as $dokter) : ?>
-                                        <option value="<?= $dokter['id_dokter']; ?>"><?= $dokter['nama']; ?></option>
+                                        <option value="<?= $dokter['id_dokter']; ?>"
+                                            <?= $dokter['id_dokter'] == $jadwaldokter['id_dokter'] ? 'selected' : ''; ?>>
+                                            <?= $dokter['nama']; ?>
+                                        </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>

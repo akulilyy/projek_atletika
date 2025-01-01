@@ -74,10 +74,11 @@ class Produk extends BaseController
         }
 
         // Cek apakah ada field yang kosong
-        if (empty($kode_pro) || empty($id_supplier) || empty($this->request->getVar('nama')) || empty($this->request->getVar('harga_produk')) || empty($this->request->getVar('stok')) || empty($this->request->getVar('diskon'))) {
-            session()->setFlashdata('error', 'Semua field wajib diisi.');
+        if (empty($kode_pro) || empty($id_supplier) || empty($this->request->getVar('nama')) || empty($this->request->getVar('harga_produk')) || empty($this->request->getVar('stok'))) {
+            session()->setFlashdata('error', 'Semua field wajib diisi kecuali diskon.');
             return redirect()->back()->withInput();
         }
+
 
         // Simpan data produk
         $this->produkModel->save([
@@ -111,7 +112,7 @@ class Produk extends BaseController
     {
         $id_produk = $this->request->getVar('id_produk'); // Pastikan menggunakan 'id' yang benar dari input hidden
         $data = [
-            'kode_produk'   => $this->request->getVar('kode'),
+            'kode_produk'   => $this->request->getVar('kode_produk'),
             'nama'          => $this->request->getVar('nama'),
             'id_supplier'   => $this->request->getVar('id_supplier'), // Perbaiki dengan 'id_supplier'
             'harga_produk'  => $this->request->getVar('harga_produk'),

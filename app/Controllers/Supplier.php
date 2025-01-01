@@ -48,14 +48,11 @@ class Supplier extends BaseController
 
     public function simpan()
     {
-
-        $id_sup = $this->request->getVar('id_supplier');
-        $data = [
-
+        $this->supplierModel->save([
             'nama'               => $this->request->getVar('nama'),
             'no_hp'              => $this->request->getVar('no_hp'),
             'alamat'             => $this->request->getVar('alamat'),
-        ];
+        ]);
         session()->setFlashdata('success', 'Data berhasil ditambahkan!');
         return redirect()->to('supplier');
     }

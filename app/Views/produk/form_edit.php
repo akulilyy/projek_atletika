@@ -14,8 +14,9 @@
                     <form action="<?= base_url(); ?>produk/update" method="post">
                         <div class="row mb-3">
                             <input type="hidden" name="id_produk" value="<?= $produk['id_produk']; ?>">
+                            <input type="hidden" name="kode_produk" value="<?= $produk['kode_produk']; ?>">
                             <div class="col-md-6">
-                                <label for="kode_pro" class="form-label">Kode</label>
+                                <label for="kode_produk" class="form-label">Kode</label>
                                 <input type="text" name="kode_produk" class="form-control" value="<?= $produk['kode_produk']; ?>" required>
                             </div>
                             <div class="col-md-6">
