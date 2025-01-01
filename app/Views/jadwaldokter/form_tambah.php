@@ -14,18 +14,22 @@
                     <form action="<?= base_url(); ?>jadwaldokter/simpan" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" name="nama" class="form-control" required>
+                                <label for="id_dokter" class="form-label" name="nama">Nama Dokter</label>
+                                <select name="id_dokter" class="form-control" required>
+                                    <?php foreach ($dokter as $dokter) : ?>
+                                        <option value="<?= $dokter['id_dokter']; ?>"><?= $dokter['nama']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="tanggal" class="form-label">Tanggal</label>
-                                <input type="date" name="tanggal_lahir" class="form-control" required>
+                                <input type="date" name="tanggal" class="form-control" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="jam_praktik" class="form-label">Jam Praktik</label>
-                                <input type="text" name="no_hp" class="form-control" required>
+                                <input type="time" name="jam_praktik" class="form-control" required>
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">

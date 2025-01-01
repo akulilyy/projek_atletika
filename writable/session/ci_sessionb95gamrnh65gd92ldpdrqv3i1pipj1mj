@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1735704740;_ci_previous_url|s:41:"http://localhost:8080/index.php/treatment";error|s:24:"Semua field wajib diisi.";__ci_vars|a:2:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:4:{s:4:"kode";s:8:"TR-23489";s:4:"nama";s:5:"Botox";s:5:"harga";s:6:"250000";s:6:"diskon";s:2:"10";}}

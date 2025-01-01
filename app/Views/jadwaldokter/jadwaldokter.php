@@ -54,7 +54,7 @@
                         <table class="table table-bordered">
                             <tr class="text-center">
                                 <th>No</th>
-                                <th>Nama</th>
+                                <th>Nama Dokter</th>
                                 <th>Tanggal</th>
                                 <th>Jam Praktik</th>
                                 <th>Aksi</th>

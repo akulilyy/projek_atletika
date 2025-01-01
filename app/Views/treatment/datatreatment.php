@@ -58,8 +58,8 @@
                                 <th>No</th>
                                 <th>Kode</th>
                                 <th>Nama Treatment</th>
-                                <th>Diskon</th>
                                 <th>Harga</th>
+                                <th>Diskon</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php
@@ -67,10 +67,10 @@
                             foreach ($treatment as $key) : ?>
                                 <tr>
                                     <td class="text-center"><?= $no++; ?></td>
-                                    <td><?= $key['kode']; ?></td>
+                                    <td><?= $key['kode_tre']; ?></td>
                                     <td><?= $key['nama']; ?></td>
-                                    <td><?= $key['diskon']; ?></td>
                                     <td><?= $key['harga']; ?></td>
+                                    <td><?= $key['diskon']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">
                                         <a href="/treatment/edit/<?= $key['id_treatment']; ?>" class="btn btn-success">Edit</a>
                                         <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_treatment']; ?>)">Hapus</a>

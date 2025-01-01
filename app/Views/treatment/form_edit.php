@@ -13,10 +13,10 @@
                 <div class="card-body">
                     <form action="<?= base_url(); ?>treatment/update" method="post">
                         <div class="row mb-3">
-                            <input type="hidden" name="id" value="<?= $treatment['id_treatment']; ?>">
+                            <input type="hidden" name="id_treatment" value="<?= $treatment['id_treatment']; ?>">
                             <div class="col-md-6">
                                 <label for="kode_tre" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" value="<?= $treatment['kode']; ?>" required>
+                                <input type="text" name="kode_tre" class="form-control" value="<?= $treatment['kode_tre']; ?>" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Treatment</label>
@@ -25,13 +25,13 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
+                                <label for="harga" class="form-label">Harga</label>
+                                <input type="text" name="harga" class="form-control" value="<?= $treatment['harga']; ?>" required>
+                            </div>
+                            <div class="col-md-6">
                                 <label for="diskon" class="form-label">Diskon</label>
                                 <input type="text" name="diskon" class="form-control" value="<?= $treatment['diskon']; ?>">
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label for="harga" class="form-label">Harga</label>
-                            <input type="text" name="harga" class="form-control" value="<?= $treatment['kode']; ?>" required>
                         </div>
                 </div>
                 <div class="btn d-flex justify-content-end">

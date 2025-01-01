@@ -33,12 +33,12 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Diskon</label>
-                                <input type="text" name="diskon" class="form-control">
-                            </div>
-                            <div class="col-md-6">
                                 <label for="harga_produk" class="form-label">Harga Produk</label>
                                 <input type="text" name="harga_produk" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="diskon" class="form-label">Diskon</label>
+                                <input type="text" name="diskon" class="form-control">
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">

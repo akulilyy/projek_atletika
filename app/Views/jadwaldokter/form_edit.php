@@ -15,18 +15,22 @@
                         <div class="row mb-3">
                             <input type="hidden" name="id" value="<?= $jadwaldokter['id_jadwaldokter']; ?>">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input type="text" name="nama" class="form-control" value="<?= $jadwaldokter['nama']; ?>" required>
+                                <label for="nama" class="form-label" name="nama">Nama</label>
+                                <select name="id_dokter" class="form-control" value="<?= $jadwaldokter['nama']; ?>" required>
+                                    <?php foreach ($dokter as $dokter) : ?>
+                                        <option value="<?= $dokter['id_dokter']; ?>"><?= $dokter['nama']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
                                 <label for="tanggal" class="form-label">Tanggal</label>
-                                <input type="date" name="tanggal_lahir" class="form-control" value="<?= $jadwaldokter['tanggal']; ?>" required>
+                                <input type="date" name="tanggal" class="form-control" value="<?= $jadwaldokter['tanggal']; ?>" required>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="jam_praktik" class="form-label">Jam Praktik</label>
-                                <input type="text" name="no_hp" class="form-control" value="<?= $jadwaldokter['jam_praktik']; ?>" required>
+                                <input type="time" name="jam_praktik" class="form-control" value="<?= $jadwaldokter['jam_praktik']; ?>" required>
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">

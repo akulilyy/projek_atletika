@@ -47,15 +47,15 @@ class Treatment extends BaseController
             session()->setFlashdata('error', 'Data sudah ada. Gunakan kode yang berbeda.');
             return redirect()->back()->withInput();
         }
-        if (empty($kode_tre) || empty('nama') || empty('diskon') || empty('harga')) {
+        if (empty($kode_tre) || empty('nama') || empty('harga') || empty('diskon')) {
             session()->setFlashdata('error', 'Semua field wajib diisi.');
             return redirect()->back()->withInput();
         }
         $this->treatmentModel->save([
             'kode_tre'           => $kode_tre,
             'nama'          => $this->request->getVar('nama'),
-            'diskon'          => $this->request->getVar('diskon'),
             'harga'          => $this->request->getVar('harga'),
+            'diskon'          => $this->request->getVar('diskon'),
         ]);
         session()->setFlashdata('success', 'Data berhasil ditambahkan!');
         return redirect()->to('treatment');
@@ -77,8 +77,8 @@ class Treatment extends BaseController
         $data = [
             'kode_tre'           => $this->request->getVar('kode_tre'),
             'nama'               => $this->request->getVar('nama'),
-            'diskon'             => $this->request->getVar('diskon'),
             'harga'              => $this->request->getVar('harga'),
+            'diskon'             => $this->request->getVar('diskon'),
         ];
         $this->treatmentModel->update_data($data, $id_treatment);
         session()->setFlashdata('success', 'Data berhasil diedit!');

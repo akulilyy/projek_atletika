@@ -9,7 +9,7 @@ class TreatmentModel extends Model
     protected $table = 'treatment';
     protected $primaryKey = 'id_treatment';
     //untuk mengijinkan menambah data
-    protected $allowedFields = ['kode_tre', 'nama', 'diskon', 'harga'];
+    protected $allowedFields = ['kode_tre', 'nama', 'harga', 'diskon'];
 
     public function data_treatment($id_treatment)
     {

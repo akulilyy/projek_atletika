@@ -61,8 +61,8 @@
                                 <th>Nama Produk</th>
                                 <th>Supplier</th>
                                 <th>Stok</th>
-                                <th>Diskon</th>
                                 <th>Harga</th>
+                                <th>Diskon</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php
@@ -74,11 +74,11 @@
                                     <td><?= $key['nama']; ?></td>
                                     <td><?= $key['supplier']; ?></td>
                                     <td><?= $key['stok']; ?></td>
-                                    <td><?= $key['diskon']; ?></td>
                                     <td><?= $key['harga_produk']; ?></td>
+                                    <td><?= $key['diskon']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">
-                                        <a href="/produk/edit/<?= $key['id_supplier']; ?>" class="btn btn-success">Edit</a>
-                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_supplier']; ?>)">Hapus</a>
+                                        <a href="/produk/edit/<?= $key['id_produk']; ?>" class="btn btn-success">Edit</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_produk']; ?>)">Hapus</a>
                                         <script>
                                             function confirmDelete(id) {
                                                 swal({

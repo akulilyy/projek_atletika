@@ -14,7 +14,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="kode_tre" class="form-label">Kode</label>
-                                <input type="text" name="kode" class="form-control" required>
+                                <input type="text" name="kode_tre" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="nama" class="form-label">Nama Treatment</label>
@@ -23,12 +23,12 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Diskon</label>
-                                <input type="text" name="diskon" class="form-control">
-                            </div>
-                            <div class="col-md-6">
                                 <label for="harga" class="form-label">Harga</label>
                                 <input type="text" name="harga" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="diskon" class="form-label">Diskon</label>
+                                <input type="text" name="diskon" class="form-control">
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">
