@@ -39,7 +39,7 @@
                                 <input type="text" name="jam" class="form-control" value="<?= $jualtreatment['jam']; ?>">
                             </div>
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Total Harga</label>
+                                <label for="diskon" class="form-label">Harga</label>
                                 <input type="text" name="total_harga" class="form-control" value="<?= $jualtreatment['total_harga']; ?>">
                             </div>
                         </div>

@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1735313944;_ci_previous_url|s:37:"http://localhost:8080/index.php/login";error|s:24:"Semua field wajib diisi.";__ci_vars|a:2:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:3:{s:4:"nama";s:4:"siul";s:5:"no_hp";s:11:"08123478214";s:6:"alamat";s:13:"Kota Terapung";}}

@@ -128,11 +128,12 @@ class JadwalDokter extends BaseController
     {
         $id_jadwal = $this->request->getVar('id_jadwaldokter');
         $data = [
-            'id_dokter'               => $this->request->getVar('id_dokter'),
-            'tanggal'            => $this->request->getVar('tanggal_'),
-            'jam_praktik'        => $this->request->getVar('jadwal_praktik'),
+            'id_dokter' => $this->request->getVar('id_dokter'),
+            'tanggal' => date('Y-m-d', strtotime($this->request->getVar('tanggal'))),
+            'jam_praktik' => date('H:i:s', strtotime($this->request->getVar('jam_praktik'))),
         ];
         $this->jadwaldokterModel->update($id_jadwal, $data);
+
         session()->setFlashdata('success', 'Data berhasil diedit!');
         return redirect()->to('jadwaldokter');
     }

@@ -66,7 +66,7 @@
                                 <!-- tarik data dari tabel dokter (id_dokter narik nama dokter???) -->
                                 <th>Jam</th>
                                 <!-- ini belum di set, apa ambil dari taabel jadwal dokter? tapi belum di sambungin ke database -->
-                                <th>Total Harga</th>
+                                <th>Harga</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php
