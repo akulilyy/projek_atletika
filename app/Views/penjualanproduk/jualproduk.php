@@ -60,24 +60,22 @@
                                 <th>Tanggal</th>
                                 <th>Nama Produk</th>
                                 <!-- tarik data dari tabel produk (id_produk) -->
-                                <th>Qty</th>
+                                <th>Jumlah</th>
                                 <th>Harga Satuan</th>
                                 <th>Subtotal</th>
                                 <th>Aksi</th>
                             </tr>
-                            <?php
-                            $no = 1;
-                            foreach ($jualproduk as $key) : ?>
+                            <?php foreach ($detail_produk as $index => $detail): ?>
                                 <tr>
-                                    <td class="text-center"><?= $no++; ?></td>
-                                    <td><?= $key['tanggal']; ?></td>
-                                    <td><?= $key['nama']; ?></td>
-                                    <td><?= $key['qty']; ?></td>
-                                    <td><?= $key['harga_satuan']; ?></td>
-                                    <td><?= $key['subtotal']; ?></td>
+                                    <td><?= $index + 1 ?></td>
+                                    <td><?= date('Y-m-d', strtotime($detail['tanggal'])) ?></td>
+                                    <td><?= htmlspecialchars($detail['nama']) ?></td>
+                                    <td><?= $detail['jumlah'] ?></td>
+                                    <td>Rp. <?= number_format($detail['harga_satuan'], 0, ',', '.') ?></td>
+                                    <td>Rp. <?= number_format($detail['subtotal'], 0, ',', '.') ?></td>
                                     <td class="text-center justify-content-between align-items-center">
-                                        <a href="/penjualanproduk/edit/<?= $key['id_detailpenjualan']; ?>" class="btn btn-success">Edit</a>
-                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_detailpenjualan']; ?>)">Hapus</a>
+                                        <a href="/penjualanproduk/edit/<?= $detail['id_detail_produk']; ?>" class="btn btn-success">Edit</a>
+                                        <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $detail['id_detail_produk']; ?>)">Hapus</a>
                                         <script>
                                             function confirmDelete(id) {
                                                 swal({

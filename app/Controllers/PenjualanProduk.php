@@ -2,18 +2,18 @@
 
 namespace App\Controllers;
 
+use App\Models\DetailProdukModel;
 use App\Models\jualProdukModel;
 use App\Models\ProdukModel;
 use App\Models\PenjualanModel;
 
 class PenjualanProduk extends BaseController
 {
-    protected $jualprodukModel;
+    protected $DetailProdukModel;
 
     public function __construct()
     {
-        // Menginisialisasi model
-        $this->jualprodukModel = new jualProdukModel();
+        $this->DetailProdukModel = new DetailProdukModel();
     }
 
     public function index()
@@ -36,59 +36,84 @@ class PenjualanProduk extends BaseController
             'search' => $search, // Kirimkan data pencarian ke view
         ];
 
+        $model = new DetailProdukModel();
+
+        // Mengambil data detail produk dengan nama produk
+        $data['detail_produk'] = $model->getDetailProduk();
+
+
         // Memanggil view dan mengirim data
         echo view('penjualanproduk/jualproduk', $data);
     }
+    // Fungsi untuk menampilkan form tambah data detail produk
     public function tambah()
     {
-        //menambhakan form tambah pada folder mahasiswa
         $data = [
-            'title' => 'Tambah Data Penjualan',
+            'title' => 'Tambah Data Penjualan Produk',
+            'produk' => $this->DetailProdukModel->getProduk() // Ambil data produk untuk dropdown
         ];
-        echo view('penjualanproduk/form_tambah', $data);
+        return view('penjualanproduk/form_tambah', $data);
     }
 
+    // Fungsi untuk menyimpan data detail produk
     public function simpan()
     {
-        $this->jualprodukModel->save([
-            'tanggal'          => $this->request->getPost('tanggal'),
-            'nama'          => $this->request->getPost('nama'),
-            'qty'          => $this->request->getPost('qty'),
-            'harga_satuan'         => $this->request->getPost('harga_satuan'),
-            'subtotal'        => $this->request->getPost('subtotal'),
-        ]);
+        $data = [
+            'tanggal'       => $this->request->getPost('tanggal'),
+            'id_produk'     => $this->request->getPost('id_produk'),
+            'jumlah'        => $this->request->getPost('jumlah'),
+            'harga_satuan'  => $this->request->getPost('harga_satuan'),
+            'subtotal'      => $this->request->getPost('subtotal'),
+        ];
+
+        // Menyimpan data ke tabel detail_produk
+        $this->DetailProdukModel->save($data);
         session()->setFlashdata('success', 'Data berhasil ditambahkan!');
-        return redirect()->to('penjualanproduk');
+        return redirect()->to('/penjualanproduk');
     }
 
-    public function edit($id_jupro)
+    // Fungsi untuk menampilkan halaman edit
+    public function edit($id_detail_produk)
     {
-        $jualproduk = $this->jualprodukModel->data_pel($id_jupro);
+        $detailProduk = $this->DetailProdukModel->find($id_detail_produk);
+
+        // Pastikan data ditemukan
+        if (!$detailProduk) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Detail produk dengan ID $id_detail_produk tidak ditemukan.");
+        }
+
         $data = [
-            'title' => 'Edit Data Pelanggan',
-            'jualproduk' => $jualproduk
+            'title'        => 'Edit Data Penjualan Produk',
+            'detail_produk' => $detailProduk,
+            'produk'       => $this->DetailProdukModel->getProduk() // Ambil data produk untuk dropdown
         ];
-        echo view('penjualanproduk/form_edit', $data);
+
+        return view('penjualanproduk/form_edit', $data);
     }
+
+    // Fungsi untuk memperbarui data detail produk
     public function update()
     {
-        $id_jupro = $this->request->getVar('id_penjualanproduk');
+        $id_detail_produk = $this->request->getPost('id_detail_produk');
         $data = [
-            'tanggal'               => $this->request->getVar('tanggal'),
-            'nama'      => $this->request->getVar('nama'),
-            'qty'      => $this->request->getVar('qty'),
-            'harga_satuan'              => $this->request->getVar('harga_satuan'),
-            'subtotal'             => $this->request->getVar('subtotal'),
+            'tanggal'       => $this->request->getPost('tanggal'),
+            'id_produk'     => $this->request->getPost('id_produk'),
+            'jumlah'        => $this->request->getPost('jumlah'),
+            'harga_satuan'  => $this->request->getPost('harga_satuan'),
+            'subtotal'      => $this->request->getPost('subtotal'),
         ];
-        $this->jualprodukModel->update_data($data, $id_jupro);
-        session()->setFlashdata('success', 'Data berhasil diedit!');
-        return redirect()->to('penjualanproduk');
+
+        // Update data berdasarkan ID
+        $this->DetailProdukModel->update($id_detail_produk, $data);
+        session()->setFlashdata('success', 'Data berhasil diperbarui!');
+        return redirect()->to('/penjualanproduk');
     }
 
-    public function delete($id_jupro)
+    // Fungsi untuk menghapus data detail produk
+    public function delete($id_detail_produk)
     {
-        $this->jualprodukModel->delete_data($id_jupro);
+        $this->DetailProdukModel->delete($id_detail_produk);
         session()->setFlashdata('success', 'Data berhasil dihapus!');
-        return redirect()->to('penjualanproduk');
+        return redirect()->to('/penjualanproduk');
     }
 }
