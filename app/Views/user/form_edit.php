@@ -26,7 +26,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="text" name="password" class="form-control" value="<?= $user['password']; ?>" required>
+                                <input type="text" name="password" class="form-control" required>
                             </div>
                             <div class="col-md-6">
                                 <label for="role">Bagian:</label>

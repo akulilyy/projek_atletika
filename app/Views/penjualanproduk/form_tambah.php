@@ -32,12 +32,6 @@
                                 <input type="text" name="harga_satuan" class="form-control" required>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="subtotal" class="form-label">Subtotal</label>
-                                <input type="text" name="subtotal" class="form-control">
-                            </div>
-                        </div>
                         <div class="btn d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary me-2">Simpan</button>
                             <a href="<?= base_url() ?>penjualanproduk" class="btn btn-danger">Kembali</a>

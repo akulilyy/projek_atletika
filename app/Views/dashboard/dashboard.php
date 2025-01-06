@@ -3,15 +3,18 @@
 <?= $this->section('isi'); ?>
 <div id="layoutSidenav_content">
     <main>
+
         <div class="container-fluid px-4">
+
+            </h1>
             <div class="card-header">
                 <h4 class="text-center"></h4>
             </div>
-            <div class="row d-flex align-items-stretch">
+            <div class="row d-flex justify-content-between">
                 <div class="col-xl-2 col-md-6 d-flex align-items-center">
                     <div class="card bg-primary text-white mb-4 w-100 custom-card">
                         <div class="card-body text-center">
-                            <strong>DOKTER <br><span><?= isset($dokterCount) ? $dokterCount : 4 ?></span></strong>
+                            <strong>DOKTER <br><span><?= isset($dokterCount) ? $dokterCount : 1 ?></span></strong>
                         </div>
                     </div>
                 </div>

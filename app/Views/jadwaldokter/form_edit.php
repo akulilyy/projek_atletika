@@ -32,8 +32,12 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="jam_praktik" class="form-label">Jam Praktik</label>
-                                <input type="time" name="jam_praktik" class="form-control" value="<?= $jadwaldokter['jam_praktik']; ?>" required>
+                                <label for="jam_mulai" class="form-label">Jam Mulai</label>
+                                <input type="time" name="jam_mulai" class="form-control" value="<?= $jadwaldokter['jam_mulai']; ?>" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="jam_selesai" class="form-label">Jam Selesai</label>
+                                <input type="time" name="jam_selesai" class="form-control" value="<?= $jadwaldokter['jam_selesai']; ?>" required>
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">

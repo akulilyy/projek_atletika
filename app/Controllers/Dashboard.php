@@ -32,6 +32,9 @@ class Dashboard extends BaseController
             'supplierCount' => $supplierModel->countAll(),
         ];
 
+        $idDokter = session()->get('id_dokter') ?? [];
+        $totalDokter = is_array($idDokter) ? count($idDokter) : 0;
+
         return view('dashboard/dashboard', $data);
     }
 }

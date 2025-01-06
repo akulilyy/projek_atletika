@@ -8,7 +8,7 @@ class JadwalDokterModel extends Model
 {
     protected $table = 'jadwal_dokter'; // Nama tabel di database
     protected $primaryKey = 'id_jadwaldokter'; // Primary key tabel
-    protected $allowedFields = ['tanggal', 'jam_praktik', 'id_dokter']; // Kolom yang bisa diisi
+    protected $allowedFields = ['tanggal', 'jam_mulai', 'jam_selesai', 'id_dokter']; // Kolom yang bisa diisi
 
     public function getJadwalWithDokter()
     {

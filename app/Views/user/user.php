@@ -60,7 +60,6 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Username</th>
-                                <th>Password</th>
                                 <th>Bagian</th>
                                 <th>Aksi</th>
                             </tr>
@@ -71,7 +70,6 @@
                                     <td class="text-center"><?= $no++; ?></td>
                                     <td><?= $key['nama']; ?></td>
                                     <td><?= $key['username']; ?></td>
-                                    <td><?= $key['password']; ?></td>
                                     <td><?= $key['role']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">
                                         <a href="/user/edit/<?= $key['id_user']; ?>" class="btn btn-success">Edit</a>

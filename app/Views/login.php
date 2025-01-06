@@ -32,11 +32,11 @@
                                     <?php endif; ?>
                                     <form action="/login/authenticate" method="post">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text" name="username" placeholder="name@example.com" />
+                                            <input class="form-control" id="inputEmail" type="text" name="username" placeholder="name@example.com" required />
                                             <label for="inputEmail">Username</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password" />
+                                            <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password" required />
                                             <label for="inputPassword">Password</label>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">

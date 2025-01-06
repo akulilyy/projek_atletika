@@ -30,8 +30,9 @@
         </button>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
+
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-user fa-fw" style="color: #333;"></i>
+                    <span class="text-dark"><?= session()->get('nama') ?? 'guest'; ?></span> <i class="fas fa-user fa-fw" style="color: #333;"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" style="color: #333;" href="<?= base_url(); ?>login">Logout</a></li>

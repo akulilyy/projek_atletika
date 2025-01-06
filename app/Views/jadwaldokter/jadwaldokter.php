@@ -68,7 +68,7 @@
                                     <td class="text-center"><?= $no++; ?></td>
                                     <td><?= $key['dokter_name']; ?></td>
                                     <td><?= $key['tanggal']; ?></td>
-                                    <td><?= $key['jam_praktik']; ?></td>
+                                    <td><?= $key['jam_mulai']; ?> - <?= $key['jam_selesai']; ?></td>
                                     <td class="text-center justify-content-between align-items-center">
                                         <a href="/jadwaldokter/edit/<?= $key['id_jadwaldokter']; ?>" class="btn btn-success">Edit</a>
                                         <a href="javascript:void(0)" class="btn btn-danger" onclick="confirmDelete(<?= $key['id_jadwaldokter']; ?>)">Hapus</a>

@@ -24,7 +24,7 @@ class JadwalDokter extends BaseController
         if ($search) {
             $jadwaldokter = $jadwaldokterModel->like('dokter.nama', $search)  // Cari berdasarkan nama dokter
                 ->orLike('jadwal_dokter.tanggal', $search)
-                ->orLike('jadwal_dokter.jam_praktik', $search)
+                ->orLike('jadwal_dokter.jam_mulai', $search)
                 ->getJadwalWithDokter();  // Ambil data jadwal dengan nama dokter
         } else {
             $jadwaldokter = $jadwaldokterModel->getJadwalWithDokter();  // Ambil semua jadwal
@@ -64,7 +64,8 @@ class JadwalDokter extends BaseController
         $data = [
             'id_dokter' => $id_dokter,  // Menyimpan id_dokter
             'tanggal' => $this->request->getPost('tanggal'),
-            'jam_praktik' => $this->request->getPost('jam_praktik'),
+            'jam_mulai' => $this->request->getPost('jam_mulai'),
+            'jam_selesai' => $this->request->getPost('jam_selesai'),
         ];
 
         // Simpan data ke jadwal_dokter
@@ -76,34 +77,6 @@ class JadwalDokter extends BaseController
 
         return redirect()->to(base_url('jadwaldokter'));
     }
-
-
-    // public function simpan()
-    // {
-    //     // Ambil id_dokter dari form
-    //     $id_dokter = $this->request->getPost('id_dokter');
-
-    //     // Ambil nama dokter berdasarkan id_dokter
-    //     $dokterModel = new DokterModel();  // Pastikan Anda sudah membuat model untuk tabel dokter
-    //     $dokter = $dokterModel->find($id_dokter);
-    //     $nama = $dokter ? $dokter['nama'] : ''; // Pastikan dokter ditemukan
-
-    //     // Data yang akan disimpan
-    //     $data = [
-    //         'id_dokter' => $id_dokter,  // Menyimpan id_dokter
-    //         'tanggal' => $this->request->getPost('tanggal'),
-    //         'jam_praktik' => $this->request->getPost('jam_praktik'),
-    //     ];
-
-    //     // Simpan data ke jadwal_dokter
-    //     if ($this->jadwaldokterModel->insert($data)) {
-    //         session()->setFlashdata('success', 'Data berhasil disimpan.');
-    //     } else {
-    //         session()->setFlashdata('error', 'Terjadi kesalahan saat menyimpan data.');
-    //     }
-
-    //     return redirect()->to(base_url('jadwaldokter'));
-    // }
 
     public function edit($id_jadwal)
     {
@@ -130,7 +103,8 @@ class JadwalDokter extends BaseController
         $data = [
             'id_dokter' => $this->request->getVar('id_dokter'),
             'tanggal' => date('Y-m-d', strtotime($this->request->getVar('tanggal'))),
-            'jam_praktik' => date('H:i:s', strtotime($this->request->getVar('jam_praktik'))),
+            'jam_mulai' => date('H:i:s', strtotime($this->request->getVar('jam_mulai'))),
+            'jam_selesai' => date('H:i:s', strtotime($this->request->getVar('jam_selesai'))),
         ];
         $this->jadwaldokterModel->update($id_jadwal, $data);
 
