@@ -32,7 +32,7 @@
                                 <select name="id_treatment" id="treatment" class="form-select" required>
                                     <option value="">Pilih Treatment</option>
                                     <?php foreach ($treatment as $t): ?>
-                                        <option value="<?= $t['id_treatment']; ?>" data-harga="<?= $t['harga']; ?>">
+                                        <option value="<?= $t['id_treatment']; ?>">
                                             <?= $t['nama']; ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -61,7 +61,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="harga" class="form-label">Harga</label>
-                                <input type="text" name="harga" id="harga" class="form-control" readonly>
+                                <input type="text" name="harga" id="harga" class="form-control" required>
 
                             </div>
                         </div>

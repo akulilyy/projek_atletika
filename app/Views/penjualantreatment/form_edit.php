@@ -32,7 +32,7 @@
                                 <label for="id_treatment" class="form-label">Nama Treatment</label>
                                 <select name="id_treatment" id="treatment" class="form-select" required>
                                     <?php foreach ($treatment as $t): ?>
-                                        <option value="<?= $t['id_treatment']; ?>" data-harga="<?= $t['harga']; ?>" <?= ($detail['id_treatment'] == $t['id_treatment']) ? 'selected' : ''; ?>>
+                                        <option value="<?= $t['id_treatment']; ?>" <?= ($detail['id_treatment'] == $t['id_treatment']) ? 'selected' : ''; ?>>
                                             <?= $t['nama']; ?>
                                         </option>
                                     <?php endforeach; ?>
@@ -62,7 +62,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label for="harga" class="form-label">Harga</label>
-                                <input type="text" name="harga" id="harga" class="form-control" value="Rp. <?= number_format($detail['harga'], 0, ',', '.'); ?>" readonly>
+                                <input type="text" name="harga" id="harga" class="form-control" value="<?= $detail['harga']; ?>" required>
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">

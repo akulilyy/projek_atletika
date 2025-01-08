@@ -42,16 +42,6 @@ class PenjualanTreatment extends BaseController
 
     public function save()
     {
-        // Ambil nilai harga dan konversi ke angka
-        $harga = str_replace(['Rp.', ',', ' '], '', $this->request->getPost('harga')); // Hapus Rp., koma, dan spasi
-        $harga = (int) $harga; // Ubah ke integer
-
-        // Validasi harga
-        if ($harga <= 0) {
-            session()->setFlashdata('error', 'Harga tidak valid.');
-            return redirect()->back()->withInput();
-        }
-
         // Simpan data ke database
         $this->jualTreatmentModel->save([
             'tanggal' => $this->request->getPost('tanggal'),
@@ -60,7 +50,7 @@ class PenjualanTreatment extends BaseController
             'id_dokter' => $this->request->getPost('id_dokter'),
             'jam_mulai' => $this->request->getPost('jam_mulai'),
             'jam_selesai' => $this->request->getPost('jam_selesai'),
-            'harga' => $harga,
+            'harga' =>  $this->request->getPost('harga'),
         ]);
 
         session()->setFlashdata('success', 'Data berhasil ditambahkan.');
