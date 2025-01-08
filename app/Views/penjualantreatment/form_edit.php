@@ -1,6 +1,5 @@
 <?= $this->extend('template/template'); ?>
 
-
 <?= $this->section('isi'); ?>
 
 <div id="layoutSidenav_content">
@@ -11,36 +10,59 @@
                     <h4 class="text-center"><?= $title ?></h4>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url(); ?>penjualanproduk/update" method="post">
+                    <form action="<?= base_url(); ?>penjualantreatment/update/<?= $detail['id_detail_treatment']; ?>" method="post">
                         <div class="row mb-3">
-                            <input type="hidden" name="id" value="<?= $jualtreatment['id_penjualantreatment']; ?>">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Tanggal</label>
-                                <input type="text" name="tanggal" class="form-control" value="<?= $jualtreatment['tanggal']; ?>" required>
+                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control" value="<?= $detail['tanggal']; ?>" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Nama Pelanggan</label>
-                                <input type="text" name="nama_pelanggan" class="form-control" value="<?= $jualtreatment['nama_pelangan']; ?>" required>
+                                <label for="id_pelanggan" class="form-label">Nama Pelanggan</label>
+                                <select name="id_pelanggan" class="form-select" required>
+                                    <?php foreach ($pelanggan as $p): ?>
+                                        <option value="<?= $p['id_pelanggan']; ?>" <?= ($detail['id_pelanggan'] == $p['id_pelanggan']) ? 'selected' : ''; ?>>
+                                            <?= $p['nama']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="supplier" class="form-label">Treatment</label>
-                                <input type="text" name="treatment" class="form-control" value="<?= $jualtreatment['treatment']; ?>" required>
+                                <label for="id_treatment" class="form-label">Nama Treatment</label>
+                                <select name="id_treatment" id="treatment" class="form-select" required>
+                                    <?php foreach ($treatment as $t): ?>
+                                        <option value="<?= $t['id_treatment']; ?>" data-harga="<?= $t['harga']; ?>" <?= ($detail['id_treatment'] == $t['id_treatment']) ? 'selected' : ''; ?>>
+                                            <?= $t['nama']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="stok" class="form-label">Dokter</label>
-                                <input type="text" name="dokter" class="form-control" value="<?= $jualtreatment['dokter']; ?>" required>
+                                <label for="id_dokter" class="form-label">Nama Dokter</label>
+                                <select name="id_dokter" class="form-select" required>
+                                    <?php foreach ($dokter as $d): ?>
+                                        <option value="<?= $d['id_dokter']; ?>" <?= ($detail['id_dokter'] == $d['id_dokter']) ? 'selected' : ''; ?>>
+                                            <?= $d['nama']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Jam</label>
-                                <input type="text" name="jam" class="form-control" value="<?= $jualtreatment['jam']; ?>">
+                                <label for="jam_mulai" class="form-label">Jam Mulai</label>
+                                <input type="time" name="jam_mulai" class="form-control" value="<?= $detail['jam_mulai']; ?>" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Harga</label>
-                                <input type="text" name="total_harga" class="form-control" value="<?= $jualtreatment['total_harga']; ?>">
+                                <label for="jam_selesai" class="form-label">Jam Selesai</label>
+                                <input type="time" name="jam_selesai" class="form-control" value="<?= $detail['jam_selesai']; ?>" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="harga" class="form-label">Harga</label>
+                                <input type="text" name="harga" id="harga" class="form-control" value="Rp. <?= number_format($detail['harga'], 0, ',', '.'); ?>" readonly>
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">
@@ -53,4 +75,13 @@
         </div>
     </main>
 </div>
+
+<script>
+    document.getElementById('treatment').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const harga = selectedOption.getAttribute('data-harga');
+        document.getElementById('harga').value = harga ? `Rp. ${parseInt(harga).toLocaleString('id-ID')}` : '';
+    });
+</script>
+
 <?= $this->endSection(); ?>

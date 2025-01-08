@@ -33,6 +33,7 @@ class LaporanPenjualan extends BaseController
             'title'  => 'Laporan Penjualan',
             'laporan' => $laporan,
             'search' => $search, // Kirimkan data pencarian ke view
+            'penjualan' => $this->laporanpenjualanModel->getCombinedData(), // Ambil data gabungan
         ];
 
         // Memanggil view dan mengirim data

@@ -67,6 +67,15 @@ $routes->get('/produk/edit/(:num)', 'Produk::edit/$1');
 $routes->post('/produk/update', 'Produk::update');
 $routes->get('/produk/delete/(:num)', 'Produk::delete/$1');
 
+// penjualan treatment
+$routes->get('/penjualantreatment', 'PenjualanTreatment::index');
+$routes->get('/penjualantreatment/tambah', 'PenjualanTreatment::tambah');
+$routes->post('/penjualantreatment/save', 'PenjualanTreatment::save');
+$routes->get('/penjualantreatment/edit/(:num)', 'PenjualanTreatment::edit/$1');
+$routes->post('/penjualantreatment/update/(:num)', 'PenjualanTreatment::update/$1');
+$routes->get('/penjualantreatment/delete/(:num)', 'PenjualanTreatment::delete/$1');
+
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . 'Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . 'Routes.php';
 }

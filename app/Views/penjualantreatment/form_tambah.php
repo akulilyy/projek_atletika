@@ -1,6 +1,5 @@
 <?= $this->extend('template/template'); ?>
 
-
 <?= $this->section('isi'); ?>
 
 <div id="layoutSidenav_content">
@@ -11,40 +10,64 @@
                     <h4 class="text-center"><?= $title ?></h4>
                 </div>
                 <div class="card-body">
-                    <form action="<?= base_url(); ?>penjualantreatment/simpan" method="post">
+                    <form action="<?= base_url(); ?>penjualantreatment/save" method="post">
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="kode_pro" class="form-label">Tanggal</label>
-                                <input type="text" name="tanggal" class="form-control" required>
+                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <input type="date" name="tanggal" class="form-control" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Nama Pelanggan</label>
-                                <input type="text" name="nama_pelanggan" class="form-control" required>
+                                <label for="id_pelanggan" class="form-label">Nama Pelanggan</label>
+                                <select name="id_pelanggan" class="form-select" required>
+                                    <option value="">Pilih Pelanggan</option>
+                                    <?php foreach ($pelanggan as $p): ?>
+                                        <option value="<?= $p['id_pelanggan']; ?>"><?= $p['nama']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="nama" class="form-label">Treatment</label>
-                                <input type="text" name="treatment" class="form-control" required>
+                                <label for="id_treatment" class="form-label">Nama Treatment</label>
+                                <select name="id_treatment" id="treatment" class="form-select" required>
+                                    <option value="">Pilih Treatment</option>
+                                    <?php foreach ($treatment as $t): ?>
+                                        <option value="<?= $t['id_treatment']; ?>" data-harga="<?= $t['harga']; ?>">
+                                            <?= $t['nama']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="col-md-6">
-                                <label for="stok" class="form-label">Dokter</label>
-                                <input type="text" name="dokter" class="form-control" required>
+                                <label for="id_dokter" class="form-label">Nama Dokter</label>
+                                <select name="id_dokter" class="form-select" required>
+                                    <option value="">Pilih Dokter</option>
+                                    <?php foreach ($dokter as $d): ?>
+                                        <option value="<?= $d['id_dokter']; ?>"><?= $d['nama']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Jam</label>
-                                <input type="text" name="jam" class="form-control">
+                                <label for="jam_mulai" class="form-label">Jam Mulai</label>
+                                <input type="time" name="jam_mulai" class="form-control" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="diskon" class="form-label">Harga</label>
-                                <input type="text" name="total_harga" class="form-control">
+                                <label for="jam_selesai" class="form-label">Jam Selesai</label>
+                                <input type="time" name="jam_selesai" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="harga" class="form-label">Harga</label>
+                                <input type="text" name="harga" id="harga" class="form-control" readonly>
+
                             </div>
                         </div>
                         <div class="btn d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary me-2">Simpan</button>
-                            <a href="<?= base_url() ?>penjualantraetment" class="btn btn-danger">Kembali</a>
+                            <a href="<?= base_url() ?>penjualantreatment" class="btn btn-danger">Kembali</a>
                         </div>
                     </form>
                 </div>
@@ -52,4 +75,13 @@
         </div>
     </main>
 </div>
+
+<script>
+    document.getElementById('treatment').addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const harga = selectedOption.getAttribute('data-harga'); // Ambil harga dari data-harga
+        document.getElementById('harga').value = harga ? `Rp. ${parseInt(harga).toLocaleString('id-ID')}` : '';
+    });
+</script>
+
 <?= $this->endSection(); ?>

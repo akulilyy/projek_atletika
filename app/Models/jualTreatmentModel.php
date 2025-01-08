@@ -4,42 +4,29 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class jualTreatmentModel extends Model
+class JualTreatmentModel extends Model
 {
     protected $table = 'detail_treatment';
-    protected $primaryKey = 'id_detailtreatment';
-    protected $allowedFields = ['qty', 'harga_satuan', 'subtotal', 'id_penjualan', 'id_produk'];
+    protected $primaryKey = 'id_detail_treatment';
+    protected $allowedFields = [
+        'tanggal',
+        'id_pelanggan',
+        'id_treatment',
+        'id_dokter',
+        'jam_mulai',
+        'jam_selesai',
+        'harga'
+    ];
 
-    public function getJualTreatment()
+    public function getDetailTreatment($search = '')
     {
-        // Melakukan join antara detailpenjualan, penjualan, dan produk
-        $builder = $this->db->table('detail_penjualan dp');
-        $builder->select('dp.id_detailpenjualan, dp.qty, dp.harga_satuan, dp.subtotal, p.tanggal, pr.nama');
-        $builder->join('penjualan p', 'dp.id_penjualan = p.id_penjualan');
-        $builder->join('produk pr', 'dp.id_produk = pr.id_produk');
-
-        // Jika ada pencarian
-        if (!empty($this->request->getVar('search'))) {
-            $search = $this->request->getVar('search');
-            $builder->like('pr.nama', $search); // Pencarian berdasarkan nama produk
+        $this->select('detail_treatment.*, pelanggan.nama as nama_pelanggan, dokter.nama as nama_dokter, treatment.nama as nama_treatment, treatment.harga as harga_treatment');
+        $this->join('pelanggan', 'pelanggan.id_pelanggan = detail_treatment.id_pelanggan');
+        $this->join('dokter', 'dokter.id_dokter = detail_treatment.id_dokter');
+        $this->join('treatment', 'treatment.id_treatment = detail_treatment.id_treatment');
+        if ($search) {
+            $this->like('pelanggan.nama', $search);
         }
-
-        $query = $builder->get();
-        return $query->getResultArray();
-    }
-
-    public function data_jutre($id_jutre)
-    {
-        return $this->find($id_jutre);
-    }
-    public function update_data($data, $id_jutre)
-    {
-        $query = $this->db->table($this->table)->update($data, array('id_detailtreatment' => $id_jutre));
-        return $query;
-    }
-    public function delete_data($id_jutre)
-    {
-        $query = $this->db->table($this->table)->delete(array('id_detailtreatment' => $id_jutre));
-        return $query;
+        return $this->findAll();
     }
 }

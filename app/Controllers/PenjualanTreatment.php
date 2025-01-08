@@ -2,91 +2,138 @@
 
 namespace App\Controllers;
 
-use App\Models\jualTreatmentModel;
+use App\Models\JualTreatmentModel;
 
 class PenjualanTreatment extends BaseController
 {
-    protected $jualtreatmentModel;
+    protected $jualTreatmentModel;
 
     public function __construct()
     {
-        // Menginisialisasi model
-        $this->jualtreatmentModel = new jualTreatmentModel();
+        $this->jualTreatmentModel = new JualTreatmentModel();
     }
 
     public function index()
     {
-        $search = $this->request->getGet('search'); // Ambil input pencarian dari query string
-        $jualtreatmentModel = new \App\Models\jualTreatmentModel(); // Pastikan Anda menggunakan model yang sesuai
-
-        if ($search) {
-            $jualtreatment = $jualtreatmentModel->like('nama', $search)
-                ->orLike('', $search)
-                ->findAll();
-        } else {
-            $jualtreatment = $jualtreatmentModel->findAll();
-        }
-
-        // Menyiapkan data untuk dikirim ke view
         $data = [
-            'title'  => 'Data Penjualan Treatment',
-            'jualtreatment' => $jualtreatment,
-            'search' => $search, // Kirimkan data pencarian ke view
+            'title' => 'Penjualan Treatment',
+            'detail_treatment' => $this->jualTreatmentModel->getDetailTreatment($this->request->getGet('search')),
+            'search' => $this->request->getGet('search')
         ];
-
-        // Memanggil view dan mengirim data
-        echo view('penjualantreatment/jualtreatment', $data);
+        return view('penjualantreatment/jualtreatment', $data);
     }
+
     public function tambah()
     {
-        //menambhakan form tambah pada folder mahasiswa
+        $pelangganModel = new \App\Models\PelangganModel(); // Pastikan model ini ada
+        $treatmentModel = new \App\Models\TreatmentModel(); // Pastikan model ini ada
+        $dokterModel = new \App\Models\DokterModel();       // Pastikan model ini ada
+
         $data = [
             'title' => 'Tambah Penjualan Treatment',
+            'pelanggan' => $pelangganModel->findAll(),
+            'treatment' => $treatmentModel->findAll(),
+            'dokter' => $dokterModel->findAll(),
         ];
-        echo view('penjualantreatment/form_tambah', $data);
+
+        return view('penjualantreatment/form_tambah', $data);
     }
 
-    public function simpan()
+
+    public function save()
     {
-        $this->jualtreatmentModel->save([
-            'tanggal'          => $this->request->getPost('tanggal'),
-            'nama'          => $this->request->getPost('nama'),
-            'qty'          => $this->request->getPost('qty'),
-            'harga_satuan'         => $this->request->getPost('harga_satuan'),
-            'subtotal'        => $this->request->getPost('subtotal'),
+        // Ambil nilai harga dan konversi ke angka
+        $harga = str_replace(['Rp.', ',', ' '], '', $this->request->getPost('harga')); // Hapus Rp., koma, dan spasi
+        $harga = (int) $harga; // Ubah ke integer
+
+        // Validasi harga
+        if ($harga <= 0) {
+            session()->setFlashdata('error', 'Harga tidak valid.');
+            return redirect()->back()->withInput();
+        }
+
+        // Simpan data ke database
+        $this->jualTreatmentModel->save([
+            'tanggal' => $this->request->getPost('tanggal'),
+            'id_pelanggan' => $this->request->getPost('id_pelanggan'),
+            'id_treatment' => $this->request->getPost('id_treatment'),
+            'id_dokter' => $this->request->getPost('id_dokter'),
+            'jam_mulai' => $this->request->getPost('jam_mulai'),
+            'jam_selesai' => $this->request->getPost('jam_selesai'),
+            'harga' => $harga,
         ]);
-        session()->setFlashdata('success', 'Data berhasil ditambahkan!');
-        return redirect()->to('penjualantreatment');
+
+        session()->setFlashdata('success', 'Data berhasil ditambahkan.');
+        return redirect()->to('/penjualantreatment');
     }
 
-    public function edit($id_jutre)
+
+    // public function savee()
+    // {
+    //     // Ambil dan proses harga untuk menghilangkan format
+    //     $harga = str_replace(['Rp.', ' '], '', $this->request->getPost('harga')); // Hapus 'Rp.' dan spasi
+    //     $harga = (int) $harga; // Ubah string menjadi integer
+
+    //     // Validasi harga sebelum menyimpan
+    //     if (empty($harga) || $harga <= 0) {
+    //         session()->setFlashdata('error', 'Harga tidak valid.');
+    //         return redirect()->back()->withInput();
+    //     }
+
+    //     // Simpan data ke database
+    //     $this->jualTreatmentModel->save([
+    //         'tanggal' => $this->request->getPost('tanggal'),
+    //         'id_pelanggan' => $this->request->getPost('id_pelanggan'),
+    //         'id_treatment' => $this->request->getPost('id_treatment'),
+    //         'id_dokter' => $this->request->getPost('id_dokter'),
+    //         'jam_mulai' => $this->request->getPost('jam_mulai'),
+    //         'jam_selesai' => $this->request->getPost('jam_selesai'),
+    //         'harga' => $harga, // Harga yang sudah diproses
+    //     ]);
+
+    //     session()->setFlashdata('success', 'Data berhasil ditambahkan.');
+    //     return redirect()->to('/penjualantreatment');
+    // }
+
+
+    public function edit($id)
     {
-        $jualtreatment = $this->jualtreatmentModel->data_pel($id_jutre);
+        $jualTreatmentModel = new \App\Models\JualTreatmentModel();
+        $pelangganModel = new \App\Models\PelangganModel();
+        $treatmentModel = new \App\Models\TreatmentModel();
+        $dokterModel = new \App\Models\DokterModel();
+
         $data = [
-            'title' => 'Edit Data Pelanggan',
-            'jualtreatment' => $jualtreatment
+            'title' => 'Edit Penjualan Treatment',
+            'detail' => $jualTreatmentModel->find($id), // Data detail treatment berdasarkan ID
+            'pelanggan' => $pelangganModel->findAll(),  // Semua data pelanggan
+            'treatment' => $treatmentModel->findAll(),  // Semua data treatment
+            'dokter' => $dokterModel->findAll(),        // Semua data dokter
         ];
-        echo view('penjualantreatment/form_edit', $data);
-    }
-    public function update()
-    {
-        $id_jutre = $this->request->getVar('id_penjualantreatment');
-        $data = [
-            'tanggal'               => $this->request->getVar('tanggal'),
-            'nama'      => $this->request->getVar('nama'),
-            'qty'      => $this->request->getVar('qty'),
-            'harga_satuan'              => $this->request->getVar('harga_satuan'),
-            'subtotal'             => $this->request->getVar('subtotal'),
-        ];
-        $this->jualtreatmentModel->update_data($data, $id_jutre);
-        session()->setFlashdata('success', 'Data berhasil diedit!');
-        return redirect()->to('penjualantreatment');
+
+        return view('penjualantreatment/form_edit', $data);
     }
 
-    public function delete($id_jutre)
+    public function update($id)
     {
-        $this->jualtreatmentModel->delete_data($id_jutre);
-        session()->setFlashdata('success', 'Data berhasil dihapus!');
-        return redirect()->to('penjualantreatment');
+        $this->jualTreatmentModel->update($id, [
+            'tanggal' => $this->request->getPost('tanggal'),
+            'id_pelanggan' => $this->request->getPost('id_pelanggan'),
+            'id_treatment' => $this->request->getPost('id_treatment'),
+            'id_dokter' => $this->request->getPost('id_dokter'),
+            'jam_mulai' => $this->request->getPost('jam_mulai'),
+            'jam_selesai' => $this->request->getPost('jam_selesai'),
+            'harga' => $this->request->getPost('harga')
+        ]);
+
+        session()->setFlashdata('success', 'Data berhasil diubah.');
+        return redirect()->to('/penjualantreatment');
+    }
+
+    public function delete($id)
+    {
+        $this->jualTreatmentModel->delete($id);
+        session()->setFlashdata('success', 'Data berhasil dihapus.');
+        return redirect()->to('/penjualantreatment');
     }
 }
