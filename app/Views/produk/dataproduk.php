@@ -36,17 +36,7 @@
                     <a href="produk/tambah" class="btn btn-primary">Tambah Data</a>
                     <br><br>
                     <div class="show-entries-container">
-                        <div class="d-flex justify-content-between mb-3">
-                            <div class="d-flex align-items-center">
-                                <label for="entries" class="me-2">Show</label>
-                                <select id="entries" class="form-select" style="width: auto; display: inline-block;">
-                                    <option value="10">10</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                </select>
-                                <span class="ms-2">entries</span>
-                            </div>
+                        <div class="d-flex justify-content-end mb-3">
                             <div class="search-box d-flex align-items-center d-flex justify-content-end mb-2">
                                 <form action="" method="get" class="d-flex">
                                     <input type="text" name="search" id="search" class="form-control" placeholder="Cari Produk" style="width: 250px;" value="<?= esc($search) ?>">
