@@ -24,7 +24,7 @@ $routes->get('/', 'Login::index');
 
 $routes->post('/login/authenticate', 'Login::authenticate');
 $routes->get('/logout', 'Login::logout');
-$routes->get('/dashboard', 'Dashboard::dashboard');
+$routes->get('/dashboard', 'Dashboard::index');
 
 
 //dokter

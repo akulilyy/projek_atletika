@@ -22,7 +22,7 @@
 
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color: #f6daec;">
-        <a class="navbar-brand ps-3" href="dashboard.php">
+        <a class="navbar-brand ps-3" href="<?= base_url(); ?>dashboard">
             <img src="<?= base_url(); ?>images/logoAtletika.png" alt="Atletika Skincare" style="height: 50px;">
         </a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" style="color: #912D3A;" href="#!">
@@ -47,7 +47,7 @@
                 <div class="sb-sidenav-menu" style="scrollbar-width: none">
                     <div class="nav mb-4">
                         <div class="sb-sidenav-menu-heading"></div>
-                        <a class="nav-link" href="<?= base_url(); ?>dashboard/dashboard" style="color: white;">
+                        <a class="nav-link" href="<?= base_url(); ?>dashboard" style="color: white;">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt" style="color: white;"></i></div>
                             Dashboard
                         </a>

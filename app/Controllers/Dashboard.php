@@ -2,38 +2,27 @@
 
 namespace App\Controllers;
 
-use App\Models\DokterModel;
-use App\Models\ProdukModel;
-use App\Models\TreatmentModel;
-use App\Models\PelangganModel;
-use App\Models\SupplierModel;
+use App\Models\DashboardModel;
 
 class Dashboard extends BaseController
 {
+    protected $dashboardModel;
 
-    public function dashboard()
+    public function __construct()
     {
-        return view('dashboard/dashboard');
+        $this->dashboardModel = new DashboardModel();
     }
 
     public function index()
     {
-        $produkModel = new ProdukModel();
-        $dokterModel = new DokterModel();
-        $treatmentModel = new TreatmentModel();
-        $pelangganModel = new PelangganModel();
-        $supplierModel = new SupplierModel();
-
         $data = [
-            'produkCount' => $produkModel->countAll(),
-            'dokterCount' => $dokterModel->countAll(),
-            'treatmentCount' => $treatmentModel->countAll(),
-            'pelangganCount' => $pelangganModel->countAll(),
-            'supplierCount' => $supplierModel->countAll(),
+            'title' => 'Dashboard',
+            'dokterCount' => $this->dashboardModel->getTotalDokter(),
+            'produkCount' => $this->dashboardModel->getTotalProduk(),
+            'treatmentCount' => $this->dashboardModel->getTotalTreatment(),
+            'pelangganCount' => $this->dashboardModel->getTotalPelanggan(),
+            'supplierCount' => $this->dashboardModel->getTotalSupplier(),
         ];
-
-        $idDokter = session()->get('id_dokter') ?? [];
-        $totalDokter = is_array($idDokter) ? count($idDokter) : 0;
 
         return view('dashboard/dashboard', $data);
     }
